@@ -1,4 +1,6 @@
 require_relative "player"
+require_relative "typer"
+require_relative "level"
 
 class Game
   def initialize
@@ -18,29 +20,19 @@ class Game
                                    /____/
 
      A voyage through psyche, space and time of an individual."
-    puts
+    type_puts
     sleep(3)
     createPlayer
-    puts "Welcome #{@player.name} 👋."
+    type_puts "Welcome #{@player.name} 👋."
     sleep(2)
-    puts "You are in front of my apartment, a sunny Sunday of May 2020, the door is half-open."
-    sleep(2)
-    puts "What do you want to do?"
-    print "#{@player.name}: "
-    answer = gets.chomp
-    until answer.match?(/.*open.*door.*/i)
-      puts "Hmm.. nothing happens."
-      sleep(1)
-      print "#{@player.name}: "
-      answer = gets.chomp
-    end
-    puts "You're inside!"
+
+    Level.new(@player)
   end
 
   def createPlayer
-    puts "Hi there!"
+    type_puts "Hi there!"
     sleep(1)
-    puts "What\'s you name?"
+    type_puts "What\'s you name?"
     name = gets.chomp
     @player.name = name
     sleep(1)

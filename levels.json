@@ -1,0 +1,21 @@
+{
+  "levels": [
+    {
+      "id": 0,
+      "intro": "You are in front of my apartment, a sunny Sunday of May 2020, the door is half-open."
+    }
+  ],
+  "questions": [
+    {
+      "id": 0,
+      "level": 0,
+      "question": "What do you want to do?",
+      "response": {
+          "regex": ".*open.*door.*",
+          "text": "You're inside!",
+          "route": {"level": 0, "question": 1}
+      },
+      "defaultResponse": "Hmm.. nothing happens."
+    }
+  ]
+}
