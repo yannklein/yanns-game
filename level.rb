@@ -8,33 +8,42 @@ class Level
     @password = password
     @player = player
     @levels = load_levels
-    run_level({ level: 0, question: 0 })
+    run_level({ 'level' => 0, 'question' => 0, 'show_question' => true })
   end
 
   def run_level(current)
-    level_num = current[:level]
-    question_num = current[:question]
+    level_num = current['level']
+    question_num = current['question']
+    show_question = current['show_question']
     # Intro if first question
-    if question_num == 0
+    if question_num == 0 && show_question
       type_puts @levels['levels'][level_num]['intro']
       sleep(2)
     end
     # Ask question
     question_hash = @levels['questions'][question_num]
-    type_puts question_hash['question']
+    type_puts question_hash['question'] if show_question
     print "#{@player.name}: "
     answer = gets.chomp
-    until answer.match?(Regexp.new(question_hash['response']['regex'], 'i'))
+    show_default_response = true
+    question_hash['response'].each do |response|
+      if answer.match?(Regexp.new(response['regex'], 'i'))
+        show_default_response = false
+        type_puts response['text']
+        if response['route']['question'] == 'end'
+          puts 'The end!'
+        elsif @levels['questions'][response['route']['question']].nil?
+          puts 'Story to be continued..!'
+        else
+          run_level(response['route'])
+        end
+      end
+    end
+    if show_default_response
       type_puts question_hash['defaultResponse']
       sleep(1)
       print "#{@player.name}: "
       answer = gets.chomp
-    end
-    type_puts question_hash['response']['text']
-    unless question_hash['response']['route'] == 'end'
-      run_level(question_hash['response']['route'])
-    else
-      puts 'The end!'
     end
   end
 

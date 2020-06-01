@@ -10,11 +10,44 @@
       "id": 0,
       "level": 0,
       "question": "What do you want to do?",
-      "response": {
+      "response": [
+        {
           "regex": ".*open.*door.*",
-          "text": "You're inside!",
-          "route": {"level": 0, "question": 1}
-      },
+          "text": "",
+          "route": {"level": 0, "question": 1, "show_question": true}
+        }
+      ],
+      "defaultResponse": "Hmm.. nothing happens."
+    },
+    {
+      "id": 1,
+      "level": 0,
+      "question": "You enter the room. No one is there.\nThere is a slight coffee smell in the room, you notice an italian coffee machine and a loaf of bread on the kitchen table.\nBehind the kitchen you can see the bedroom, with colorful lights emanating from it.\nWhat do you do?",
+      "response": [
+        {
+          "regex": ".*(go|walk|enter).*bedroom.*",
+          "text": "",
+          "route": {"level": 0, "question": 2, "show_question": true}
+        }
+      ],
+      "defaultResponse": "Hmm.. nothing happens."
+    },
+    {
+      "id": 2,
+      "level": 0,
+      "question": "An hologram!\nWhen you walk in the bedroom, you discover the familiar set of a bed, sofa and coffee table.\nYou notice some wine bottle, most of them empty, a plate full of bananas probably bought in the nearby combini.\nA curious object catch your attention, it is a bronze statue of an ancient Greece soldier helmet, with a snake on the forehead, a strange energy radiates from the helmet.\nAfter an instant of reverie watching the helmet, you finally notice the elephant in the room. The colorful light you saw earlier is produced by a computer laying on the coffee table.\nThe computer produces an iridescent and slowly rotating 3D cube. What amazes you is that the cube does not show on the computer screen but seems projected 1 meter behind it, in thin air. A true hologram. What mesmerezing technology could allow that.\nYou decide to take action.",
+      "response": [
+        {
+          "regex": ".*take.*(statue|helmet).*",
+          "text": "It's surprizingly light, you put it inside your bag for later.",
+          "route": {"level": 0, "question": 2, "show_question": false}
+        },
+        {
+          "regex": ".*(touch|push|feel).*(cube|hologram).*",
+          "text": "",
+          "route": {"level": 0, "question":3, "show_question": true}
+        }
+      ],
       "defaultResponse": "Hmm.. nothing happens."
     }
   ]
