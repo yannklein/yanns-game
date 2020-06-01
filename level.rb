@@ -31,9 +31,9 @@ class Level
         show_default_response = false
         type_puts response['text']
         if response['route']['question'] == 'end'
-          puts 'The end!'
+          type_puts 'The end!\n\n\n\n\n'
         elsif @levels['questions'][response['route']['question']].nil?
-          puts 'Story to be continued..!'
+          type_puts 'Story to be continued..!\n\n\n\n\n'
         else
           run_level(response['route'])
         end
@@ -42,8 +42,7 @@ class Level
     if show_default_response
       type_puts question_hash['defaultResponse']
       sleep(1)
-      print "#{@player.name}: "
-      answer = gets.chomp
+      run_level({ 'level' => level_num, 'question' => question_num, 'show_question' => false })
     end
   end
 

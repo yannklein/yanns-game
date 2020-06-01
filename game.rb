@@ -20,9 +20,10 @@ class Game
                                    /____/
 
      A voyage through psyche, space and time of an individual."
-    type_puts
+    puts
     sleep(3)
     createPlayer
+
     type_puts "Welcome #{@player.name} 👋."
     sleep(2)
 
@@ -32,9 +33,10 @@ class Game
   def createPlayer
     type_puts "Hi there!"
     sleep(1)
-    type_puts "What\'s you name?"
+    type_puts "What\'s your name?"
     name = gets.chomp
     @player.name = name
+    puts
     sleep(1)
   end
 
