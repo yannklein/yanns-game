@@ -31,9 +31,9 @@ class Level
         show_default_response = false
         type_puts response['text']
         if response['route']['question'] == 'end'
-          type_puts 'The end!\n\n\n\n\n'
+          type_puts "The end!\n\n\n\n\n"
         elsif @levels['questions'][response['route']['question']].nil?
-          type_puts 'Story to be continued..!\n\n\n\n\n'
+          type_puts "Story to be continued..!\n\n\n\n\n"
         else
           run_level(response['route'])
         end

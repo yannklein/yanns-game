@@ -35,11 +35,16 @@
     {
       "id": 2,
       "level": 0,
-      "question": "An hologram!\nWhen you walk in the bedroom, you discover the familiar set of a bed, sofa and coffee table.\nYou notice some wine bottle, most of them empty, a plate full of bananas probably bought in the nearby combini.\nA curious object catch your attention, it is a bronze statue of an ancient Greece soldier helmet, with a snake on the forehead, a strange energy radiates from the helmet.\nAfter an instant of reverie watching the helmet, you finally notice the elephant in the room. The colorful light you saw earlier is produced by a computer laying on the coffee table.\nThe computer produces an iridescent and slowly rotating 3D cube. What amazes you is that the cube does not show on the computer screen but seems projected 1 meter behind it, in thin air. A true hologram. What mesmerezing technology could allow that.\nYou decide to take action.",
+      "question": "An hologram!\nWhen you walk in the bedroom, you discover the familiar set of a bed, a sofa and a coffee table.\nYou notice some wine bottles, most of them empty, a plate full of bananas probably bought in a nearby combini.\nA curious object catches your attention: it is a bronze statue of an ancient Greece soldier helmet, with a snake on the forehead, a strange energy radiates from it.\nAfter an instant of reverie watching the helmet, you finally notice the elephant in the room: the colorful light you saw earlier is coming out of a computer laying on the coffee table.\nThe computer produces an iridescent and slowly rotating 3D cube. What amazes you is that the cube does not show on the computer screen, but seems projected a meter behind it, in thin air. A true hologram. What mesmerezing technology could allow that?",
       "response": [
         {
           "regex": ".*take.*(statue|helmet).*",
           "text": "It's surprizingly light, you put it inside your bag for later.",
+          "route": {"level": 0, "question": 2, "show_question": false}
+        },
+        {
+          "regex": ".*(inspect|look at|check).*(cube|hologram).*",
+          "text": "The cube seems to be made out of a levitating fluid or vapor. A thin layer of air on the surface of the cube seems to be heated or pressured in a way that makes the light bend and ondulated.",
           "route": {"level": 0, "question": 2, "show_question": false}
         },
         {
